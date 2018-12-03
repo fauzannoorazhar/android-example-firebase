@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "53880982775",
+    "firebase_url": "https://friendly-chatt-6d13c.firebaseio.com",
+    "project_id": "friendly-chatt-6d13c",
+    "storage_bucket": "friendly-chatt-6d13c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53880982775:android:804b920420cba773",
+        "android_client_info": {
+          "package_name": "com.example.fauzannoor.friendly_chatt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53880982775-jo8vnv13rmupoha246agm82g1089hsll.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fauzannoor.friendly_chatt",
+            "certificate_hash": "f7fe9b1cd784d67148541dc30590a366059a247f"
+          }
+        },
+        {
+          "client_id": "53880982775-g4p1p316suppqtfd91a410v5mm5oekqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvatAyNpInDw3VE3yAR0CuV1z64T3TF5o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53880982775-g4p1p316suppqtfd91a410v5mm5oekqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
