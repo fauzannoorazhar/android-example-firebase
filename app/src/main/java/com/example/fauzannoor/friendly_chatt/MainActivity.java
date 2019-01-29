@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -142,12 +143,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        * Melakukan Check User Authentication
+        * AuthStateListener adalah class Interface dari FirebaseAuth
+        * class Interface AuthStateListener memiliki abstract method onAuthStateChanged
+        * */
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                /*
+                * memanggil method firebaseAuth.getCurrentUser untuk mendapatkan user
+                * melakukan pengecheckan if user != null
+                * */
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    onSignedInInitialize(user.getDisplayName());
+                    onSigninSuccess(user.getDisplayName());
+                    Log.i("userAuth", " " + user.getDisplayName());
                 } else {
                     onSignedOutCleanup();
                     startActivityForResult(
@@ -237,8 +248,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void onSignedInInitialize(String username) {
+    private void onSigninSuccess(String username) {
         mUsername = username;
+        // membaca lokasi child DatabaseFirebase (message)
         attachDatabaseReadListener();
     }
 
@@ -255,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                     FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
                     mMessageAdapter.add(friendlyMessage);
+                    Log.i("friendlyMessage", "" + friendlyMessage);
                 }
 
                 @Override
@@ -278,6 +291,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
             mMessagesDatabaseReference.addChildEventListener(mChildEventListener);
+            Log.i("mChildEventListener", "" + mChildEventListener);
         }
     }
 
