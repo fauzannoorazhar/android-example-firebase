@@ -218,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+        Log.i("onResume","onResume Execute");
     }
 
     @Override
@@ -228,6 +229,13 @@ public class MainActivity extends AppCompatActivity {
         }
         mMessageAdapter.clear();
         detachDatabaseReadListener();
+        Log.i("onPause","onPause Execute");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("onDestroy","onDestroy Execute");
     }
 
     @Override
@@ -261,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void attachDatabaseReadListener() {
-        if (mChildEventListener == null) {
+            if (mChildEventListener == null) {
             mChildEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
